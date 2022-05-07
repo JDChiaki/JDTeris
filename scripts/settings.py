@@ -1,4 +1,5 @@
 import pygame
+from os.path import join
 
 pygame.init()
 
@@ -13,6 +14,13 @@ BLOCK_X = (WIDTH - PWIDTH) // 2
 BLOCK_Y = HEIGHT - PHEIGHT
 
 FPS = 30
+
+CLEAR_SFX = pygame.mixer.Sound(join('sfx', 'clear.wav'))
+GAMEOVER_SFX = pygame.mixer.Sound(join('sfx', 'gameover.wav'))
+LOCKED_SFX = pygame.mixer.Sound(join('sfx', 'locked.wav'))
+ROTATE_SFX = pygame.mixer.Sound(join('sfx', 'rotate.mp3'))
+pygame.mixer.music.load(join('sfx', 'bgm.mp3'))
+pygame.mixer.music.play(-1)
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)

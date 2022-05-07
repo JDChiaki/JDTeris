@@ -84,6 +84,7 @@ def clear_row(grid, locked_pos, score: Score) -> None:
     if inc > 0:
         score.score += inc
         score.check()
+        CLEAR_SFX.play()
         for key in sorted(list(locked_pos), key=lambda pos: pos[1])[::-1]:
             x, y = key
             if y < ind:
@@ -94,5 +95,6 @@ def clear_row(grid, locked_pos, score: Score) -> None:
 def check_lost(locked_position) -> bool:
     for pos in locked_position:
         if pos[1] < 1:
+            GAMEOVER_SFX.play()
             return True
     return False

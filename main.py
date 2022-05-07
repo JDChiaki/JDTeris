@@ -53,6 +53,10 @@ def main() -> None:
                         current_piece.x -= 1
                 if event.key == pygame.K_UP:
                     current_piece.rotation = (current_piece.rotation + 1) % len(current_piece.shape)
+                    if not is_valid(current_piece, grid):
+                        current_piece.rotation = (current_piece.rotation - 1) % len(current_piece.shape)
+                    else:
+                        ROTATE_SFX.play()
             if event.type == pygame.QUIT:
                 pygame.quit()
                 return
@@ -68,6 +72,7 @@ def main() -> None:
                 p = (pos[0], pos[1])
                 locked_pos[p] = current_piece.color
             current_piece = next_piece
+            LOCKED_SFX.play()
             next_piece = get_shape()
             change_piece = False
             clear_row(grid, locked_pos, score)
