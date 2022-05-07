@@ -26,6 +26,7 @@ def main() -> None:
     score = Score()
     DWN = pygame.USEREVENT
     pygame.time.set_timer(DWN, 1000)
+    pygame.mixer.music.unpause()
     while running:
         clock.tick(FPS)
         grid = create_grid(locked_pos)

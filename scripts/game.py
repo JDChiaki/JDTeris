@@ -95,6 +95,7 @@ def clear_row(grid, locked_pos, score: Score) -> None:
 def check_lost(locked_position) -> bool:
     for pos in locked_position:
         if pos[1] < 1:
+            pygame.mixer.music.pause()
             GAMEOVER_SFX.play()
             return True
     return False
