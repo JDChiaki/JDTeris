@@ -1,3 +1,2 @@
-# from .settings import *
-from .draw import *
+from .draw import draw_win, draw_menu
 from .game import *

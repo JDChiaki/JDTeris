@@ -75,10 +75,10 @@ def main() -> None:
 
         if check_lost(locked_pos):
             running = False
-    menu()
+    _menu()
 
 
-def menu() -> None:
+def _menu() -> None:
     running = True
     while running:
         draw_menu(WIN)
