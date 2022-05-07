@@ -3,18 +3,18 @@ from os.path import join
 
 pygame.init()
 
+# Scales
 WIDTH, HEIGHT = 800, 700
 PWIDTH, PHEIGHT = 300, 600
-
 BLOCK_SIZE = 30
 ROW = 20
 COL = 10
-
 BLOCK_X = (WIDTH - PWIDTH) // 2
 BLOCK_Y = HEIGHT - PHEIGHT
 
 FPS = 30
 
+# SFXes
 CLEAR_SFX = pygame.mixer.Sound(join('sfx', 'clear.wav'))
 GAMEOVER_SFX = pygame.mixer.Sound(join('sfx', 'gameover.wav'))
 LOCKED_SFX = pygame.mixer.Sound(join('sfx', 'locked.wav'))
@@ -25,9 +25,11 @@ pygame.mixer.music.load(join('sfx', 'bgm.mp3'))
 pygame.mixer.music.set_volume(0.25)
 pygame.mixer.music.play(-1)
 
+# Fonts
 TXT_FONT = pygame.font.Font(join('scripts', 'game_font.ttf'), 30)
 TXT_FONT2 = pygame.font.Font(join('scripts', 'game_font.ttf'), 40)
 
+# Colors
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
@@ -37,9 +39,9 @@ YELLOW = (255, 255, 0)
 AQUA = (0, 255, 255)
 PINK = (255, 0, 255)
 GRAY = (128, 128, 128)
-
 shapes_colors = [RED, GREEN, BLUE, YELLOW, AQUA, PINK, GRAY]
 
+# Shapes
 S_ = [['.....',
        '.....',
        '..00.',

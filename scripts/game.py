@@ -72,8 +72,8 @@ def is_valid(piece: Piece, grid: list[list[tuple[int, int, int]]]) -> bool:
 
 
 def clear_row(grid: list[list[tuple[int, int, int]]], locked_pos: dict, score: Score) -> None:
-    inc = 0
-    ind = None
+    inc = 0  # number of rows to clear
+    ind = None  # index of last row to move down
     for i in range(len(grid) - 1, -1, -1):
         row = grid[i]
         if BLACK not in row:
