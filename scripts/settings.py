@@ -25,6 +25,9 @@ pygame.mixer.music.load(join('sfx', 'bgm.mp3'))
 pygame.mixer.music.set_volume(0.25)
 pygame.mixer.music.play(-1)
 
+TXT_FONT = pygame.font.Font(join('scripts', 'game_font.ttf'), 30)
+TXT_FONT2 = pygame.font.Font(join('scripts', 'game_font.ttf'), 40)
+
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)

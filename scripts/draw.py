@@ -28,10 +28,6 @@ def draw_piece(win: pygame.Surface, grid: list) -> None:
                              (BLOCK_X + j * BLOCK_SIZE, BLOCK_Y + i * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE), 0)
 
 
-TXT_FONT = pygame.font.Font(join('scripts', 'game_font.ttf'), 30)
-TXT_FONT2 = pygame.font.Font(join('scripts', 'game_font.ttf'), 40)
-
-
 def draw_score(win: pygame.Surface, score: Score) -> None:
     score_txt = TXT_FONT.render('Score', True, WHITE)
     win.blit(score_txt, (BLOCK_X // 2 - score_txt.get_width() // 2, BLOCK_Y + BLOCK_SIZE * 5))

@@ -4,7 +4,7 @@ from sys import exit
 
 
 class Piece:
-    def __init__(self, col, row, shape):
+    def __init__(self, col: int, row: int, shape: list[list[list[str]]]):
         self.x = col
         self.y = row
         self.shape = shape
@@ -25,7 +25,7 @@ class Score:
                 f.write(str(self.score))
 
 
-def create_grid(locked_pos=None) -> list:
+def create_grid(locked_pos=None) -> list[list[tuple[int, int, int]]]:
     if not locked_pos:
         locked_pos = {}
     grid = [[BLACK for _ in range(COL)] for _ in range(ROW)]
@@ -58,7 +58,7 @@ def convert_shape_format(piece: Piece) -> list:
     return position
 
 
-def is_valid(piece: Piece, grid) -> bool:
+def is_valid(piece: Piece, grid: list[list[tuple[int, int, int]]]) -> bool:
     ok_pos = [[(j, i) for j in range(COL) if grid[i][j] == BLACK] for i in range(ROW)]
     ok_pos = [j for sub in ok_pos for j in sub]
     shape = convert_shape_format(piece)
@@ -71,7 +71,7 @@ def is_valid(piece: Piece, grid) -> bool:
     return True
 
 
-def clear_row(grid, locked_pos, score: Score) -> None:
+def clear_row(grid: list[list[tuple[int, int, int]]], locked_pos: dict, score: Score) -> None:
     inc = 0
     ind = None
     for i in range(len(grid) - 1, -1, -1):
@@ -92,7 +92,7 @@ def clear_row(grid, locked_pos, score: Score) -> None:
                 locked_pos[newKey] = locked_pos.pop(key)
 
 
-def check_lost(locked_position) -> bool:
+def check_lost(locked_position: dict) -> bool:
     for pos in locked_position:
         if pos[1] < 1:
             pygame.mixer.music.pause()
