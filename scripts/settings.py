@@ -19,6 +19,8 @@ CLEAR_SFX = pygame.mixer.Sound(join('sfx', 'clear.wav'))
 GAMEOVER_SFX = pygame.mixer.Sound(join('sfx', 'gameover.wav'))
 LOCKED_SFX = pygame.mixer.Sound(join('sfx', 'locked.wav'))
 ROTATE_SFX = pygame.mixer.Sound(join('sfx', 'rotate.mp3'))
+PAUSE_SFX = pygame.mixer.Sound(join('sfx', 'pause.mp3'))
+
 pygame.mixer.music.load(join('sfx', 'bgm.mp3'))
 pygame.mixer.music.play(-1)
 

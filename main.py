@@ -1,4 +1,6 @@
 from scripts import *
+from sys import exit
+
 # import pygame
 
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -14,6 +16,25 @@ def draw_win(grid, score, next_shape) -> None:
     draw_grid(WIN)
     draw_score(WIN, score)
     pygame.display.update()
+
+
+def pause() -> None:
+    pausing = True
+    PAUSE_FONT = pygame.font.Font(join('scripts', 'game_font.ttf'), 50)
+    pause_txt = PAUSE_FONT.render('Pause', True, WHITE)
+    while pausing:
+        WIN.fill(BLACK)
+        WIN.blit(pause_txt, (WIDTH // 2 - pause_txt.get_width() // 2, HEIGHT // 2 - pause_txt.get_height() // 2))
+        pygame.display.update()
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    PAUSE_SFX.play()
+                    pausing = False
+                    pygame.mixer.music.unpause()
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                exit()
 
 
 def main() -> None:
@@ -44,6 +65,10 @@ def main() -> None:
                     current_piece.y -= 1
                     change_piece = True
             if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    pygame.mixer.music.pause()
+                    PAUSE_SFX.play()
+                    pause()
                 if event.key == pygame.K_LEFT:
                     current_piece.x -= 1
                     if not is_valid(current_piece, grid):
