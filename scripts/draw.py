@@ -1,6 +1,6 @@
 from .settings import *
 from .game import Score, Piece
-from os.path import join
+# from os.path import join
 # import pygame
 
 

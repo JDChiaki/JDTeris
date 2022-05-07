@@ -1,5 +1,5 @@
 from .settings import *
-from os.path import join
+# from os.path import join
 from random import choice
 
 
