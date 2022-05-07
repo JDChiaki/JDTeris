@@ -2,6 +2,15 @@ from .settings import *
 from .game import Score, Piece
 
 
+def draw_win(win: pygame.Surface, grid: list, score: Score, next_shape: Piece) -> None:
+    win.fill(BLACK)
+    draw_piece(win, grid)
+    draw_nextshape(win, next_shape)
+    draw_grid(win)
+    draw_score(win, score)
+    pygame.display.update()
+
+
 def draw_grid(win: pygame.Surface) -> None:
     pygame.draw.rect(win, RED, (BLOCK_X, BLOCK_Y, PWIDTH, PHEIGHT), 5)
     for i in range(ROW):

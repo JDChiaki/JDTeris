@@ -6,15 +6,6 @@ ICON_SURFACE = pygame.image.load(join('scripts', 'icon.png')).convert_alpha()
 pygame.display.set_icon(ICON_SURFACE)
 
 
-def draw_win(grid, score, next_shape) -> None:
-    WIN.fill(BLACK)
-    draw_piece(WIN, grid)
-    draw_nextshape(WIN, next_shape)
-    draw_grid(WIN)
-    draw_score(WIN, score)
-    pygame.display.update()
-
-
 def main() -> None:
     running = True
     clock = pygame.time.Clock()
@@ -80,7 +71,7 @@ def main() -> None:
             next_piece = get_shape()
             change_piece = False
             clear_row(grid, locked_pos, score)
-        draw_win(grid, score, next_piece)
+        draw_win(WIN, grid, score, next_piece)
 
         if check_lost(locked_pos):
             running = False
