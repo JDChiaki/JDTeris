@@ -1,7 +1,5 @@
 from .settings import *
 from .game import Score, Piece
-# from os.path import join
-# import pygame
 
 
 def draw_grid(win: pygame.Surface) -> None:

@@ -1,5 +1,4 @@
 from .settings import *
-# from os.path import join
 from random import choice
 from sys import exit
 
