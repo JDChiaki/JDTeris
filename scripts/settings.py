@@ -22,6 +22,7 @@ ROTATE_SFX = pygame.mixer.Sound(join('sfx', 'rotate.mp3'))
 PAUSE_SFX = pygame.mixer.Sound(join('sfx', 'pause.mp3'))
 
 pygame.mixer.music.load(join('sfx', 'bgm.mp3'))
+pygame.mixer.music.set_volume(0.25)
 pygame.mixer.music.play(-1)
 
 BLACK = (0, 0, 0)
