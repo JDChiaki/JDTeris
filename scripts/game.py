@@ -1,6 +1,7 @@
 from .settings import *
 # from os.path import join
 from random import choice
+from sys import exit
 
 
 class Piece:
@@ -99,3 +100,22 @@ def check_lost(locked_position) -> bool:
             GAMEOVER_SFX.play()
             return True
     return False
+
+
+def pause(win: pygame.Surface) -> None:
+    pausing = True
+    PAUSE_FONT = pygame.font.Font(join('scripts', 'game_font.ttf'), 50)
+    pause_txt = PAUSE_FONT.render('Pause', True, WHITE)
+    while pausing:
+        win.fill(BLACK)
+        win.blit(pause_txt, (WIDTH // 2 - pause_txt.get_width() // 2, HEIGHT // 2 - pause_txt.get_height() // 2))
+        pygame.display.update()
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    PAUSE_SFX.play()
+                    pausing = False
+                    pygame.mixer.music.unpause()
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                exit()
