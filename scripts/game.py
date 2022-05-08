@@ -16,7 +16,10 @@ class Score:
     def __init__(self):
         self.score = 0
         with open(join('scripts', 'score.txt'), 'r') as f:
-            self.highest = int(f.readline().strip())
+            try:
+                self.highest = int(f.readline().strip())
+            except ValueError:
+                self.highest = 0
 
     def check(self) -> None:
         if self.score > self.highest:
