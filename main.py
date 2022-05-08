@@ -24,13 +24,13 @@ def main() -> None:
         key_pressed = pygame.key.get_pressed()
         if key_pressed[pygame.K_DOWN]:
             current_piece.y += 1
-            if not (is_valid(current_piece, grid)) and current_piece.y > 0:
+            if not is_valid(current_piece, grid) and current_piece.y > 0:
                 current_piece.y -= 1
 
         for event in pygame.event.get():
             if event.type == DWN:
                 current_piece.y += 1
-                if not (is_valid(current_piece, grid)) and current_piece.y > 0:
+                if not is_valid(current_piece, grid) and current_piece.y > 0:
                     current_piece.y -= 1
                     change_piece = True
             if event.type == pygame.KEYDOWN:
